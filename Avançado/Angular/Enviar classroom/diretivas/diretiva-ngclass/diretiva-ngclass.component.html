@@ -1,0 +1,15 @@
+
+
+<h1>
+    <!-- usando o property binding para passar o valor das variaveis -->
+    <i class="glyphicon" [class.glyphicon-star-empty]="!meuFavorito" [class.glyphicon-star]="meuFavorito" (click)="onClick()"></i>
+</h1>
+
+<h1>
+    <!-- é mais facil usar o ngClass para se passar o valor das classes, aonde só se por o property-bingding 
+    no ngClass, e nos valores que voce quer atribuir se poe direto, separando por virgula e dentro das chaves -->
+    <i class="glyphicon" [ngClass]="{
+          'glyphicon-star-empty': !meuFavorito,
+          'glyphicon-star': meuFavorito
+        }" (click)="onClick()"></i>
+</h1>

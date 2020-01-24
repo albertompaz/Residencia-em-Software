@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App19",
+            "request": "launch",
+            "mainClass": "app.App19",
+            "projectName": "homensMulheresMaior"
+        }
+    ]
+}

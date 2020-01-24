@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body {
+            background: rgb(31, 78, 139);
+            color: white;
+            font: normal 14pt Arial
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+    <div id="msg">Clique em mim</div>
+
+    <script>
+        var corpo = window.document.body //window pode ser omitido como no de baixo
+        var p1 = document.getElementsByTagName('p')[0] // pegando o primeiro p '[0]'' do body
+        document.write('Está escrito assim: ' + p1.innerText) // innertext -> texto que ta dentro de p
+        corpo.style.background = 'black'
+        p1.style.color = 'blue'
+
+
+        /*
+        var p2 = document.getElementsByTagName('p')[1]
+        window.alert(p2.innerText) // innerText pega o texto sem formatação
+        window.alert(p2.innerHTML) // innerHTML pega o html inteiro do que eu selecionei, com formatação
+        */
+        /*
+        var d = window.document.getElementById('msg')
+        d.style.background = 'green'
+        //d.innerText = 'Estou aguardando'
+        window.document.getElementById('msg').innerText = 'olá' // muda igual a linha de cima
+
+        var d = window.document.getElementsByName('msg')[0] //precisa alterar a div id para name
+        d.innerText = 'ola!'
+
+        window.document.getElementsByClassName('msg')[0].innerText = 'Ola!' // precisa alterar a div com id para classe
+        */
+        var d = window.document.querySelector('div#msg')
+        d.style.color='blue'
+
+    </script>
+</body>
+</html>

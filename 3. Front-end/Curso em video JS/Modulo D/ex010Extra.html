@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nacionalidade</title>
+</head>
+<body>
+    <h1>Nacionalidade</h1>
+    Informe sua nacionalidade: <input name="texto" id="texto">
+    <input type="button" value="verificar" onclick="chamar()">
+    <div id="res">
+
+    </div>
+
+    <script>
+        var resposta = "oiiii";
+        
+        function chamar() {
+            resposta = document.getElementById('texto').value
+            res.innerHTML = `Voce é ${resposta}.` 
+
+            if (resposta === 'brasileiro' || resposta === 'brasileira') {
+                res.innerHTML += `\nEntao voce é brasileiro(a)`
+            } else {
+                res.innerHTML += `\nEntao voce é estrangeiro(a)`
+            }
+            
+            
+      
+            
+        }
+
+        
+    </script>
+</body>
+</html>

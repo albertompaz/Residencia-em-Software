@@ -1,0 +1,15 @@
+
+<p>
+    Lista de Cursos
+</p>
+
+<!-- div pra conter a lista dos cursos -->
+<div class="collection">
+    <!-- listando os cursos do nosso componente através do ngFor -->
+    <!-- o roteamento sera feito através do routerLink (feito através de um property binding) aonde a rota
+         é feita escrevendo o /curso e colocando o id do curso, ficando .../curso/<id_do_curso> -->
+    <a class="collection-item" *ngFor="let curso of cursos" [routerLink]="['/curso', curso.id]">
+    <!-- Escrevendo o nome do curso --> 
+    {{ curso.nome }}
+    </a>
+</div>

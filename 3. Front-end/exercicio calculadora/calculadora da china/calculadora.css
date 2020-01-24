@@ -1,0 +1,30 @@
+#teste{
+    margin-left: 520px;
+}
+#container{
+    border: 2px solid #333333;
+    background-color: #dbdbdb;
+    width: 214;
+    height: 286px;
+    margin: auto;
+}
+button{
+    width: 50px;
+    height: 50px;
+}
+#visor {
+    height: 35px;
+    width: 214px;
+}
+.parenteses{
+    width: 49%;
+}
+#corpo{
+    border: 1px solid #333333;
+}
+body{
+    background-image: linear-gradient(gray,green);
+}
+h1{
+    color: white;
+}

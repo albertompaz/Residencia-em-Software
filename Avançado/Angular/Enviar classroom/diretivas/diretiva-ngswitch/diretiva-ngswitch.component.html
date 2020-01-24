@@ -1,0 +1,37 @@
+
+<!-- Criando um nav com classes bootstrap -->
+<nav class="navbar navbar-dark bg-primary">
+    <div class="nav navbar-nav">
+        <!-- Criando os tipos de abas que posso ter -->
+        <!-- ao se clicar na opção desejada, através do property-binding vai deixar ela ativa, e por um
+        event-binding vai se alterar o valor da variavel -->
+        <a class="nav-item nav-link" [class.active]="aba == 'home'" (click)="aba = 'home'">Home</a>
+        <a class="nav-item nav-link" [class.active]="aba == 'mapa'" (click)="aba = 'mapa'">Mapa</a>
+        <a class="nav-item nav-link" [class.active]="aba == 'lista'" (click)="aba = 'lista'">Lista</a>
+    </div>
+</nav>
+
+<div class="container" [ngSwitch]="aba">
+    <p *ngSwitchCase="'mapa'">Modo Mapa ativado</p>
+    <p *ngSwitchCase="'lista'">Modo Lista ativado</p>
+    <!-- Se não selecionarmos nada, o modo Home sera ativado por padrão pelo default do switch -->
+    <p *ngSwitchDefault>Modo Home ativado</p>
+</div>
+
+
+<h5>Removendo o * e usando template</h5>
+    <!-- Mostrando como seria o codigo se caso queiremos usar o ng-template e nao *, que é a forma
+    mais basica que o angular realiza essa ação-->
+
+<div class="container" [ngSwitch]="aba">
+    <ng-template [ngSwitchCase]="'mapa'">
+        <p>Modo Mapa ativado</p>
+    </ng-template>
+    <ng-template [ngSwitchCase]="'lista'">
+        <p>Modo Lista ativado</p>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'home'" ngSwitchDefault>
+        <p>Modo Home ativado</p>
+    </ng-template>
+</div>

@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App21",
+            "request": "launch",
+            "mainClass": "app.App21",
+            "projectName": "piramide"
+        }
+    ]
+}

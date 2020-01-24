@@ -1,0 +1,14 @@
+<p>Descrição: {{ tarefa.desc }}</p>
+
+<!-- <p>Responsável: {{ tarefa.responsavel.usuario.nome }}</p> -->
+
+<!-- <p>Responsável: {{ tarefa.responsavel != null ? tarefa.responsavel.nome : '' }}</p>  -->
+
+<!--  
+Operador Elvis
+tarefa.responsavel é nulo? se não for vai pro proximo passo
+usuario é nulo? se não for ele mostra o nome 
+
+Ele te poupa tempo com essa verificação se está nulo ou não, aonde só mostra se não tiver nulo
+-->
+<p>Responsável: {{ tarefa.responsavel?.usuario?.nome }}</p>

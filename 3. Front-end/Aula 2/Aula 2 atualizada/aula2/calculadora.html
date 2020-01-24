@@ -1,0 +1,72 @@
+<html>
+<body>
+   <div>
+       <input type="text" id="visor" value="0">       
+   </div>
+   <table>
+       <tr>
+           <td><button onclick="addValor(1)">1</button></td>
+           <td><button onclick="addValor(2)">2</button></td>
+           <td><button onclick="addValor(3)">3</button></td>
+           <td><button onclick="limpa()">C</button></td>
+       </tr>
+       <tr>
+            <td><button onclick="addValor(4)">4</button></td>
+            <td><button onclick="addValor(5)">5</button></td>
+            <td><button onclick="addValor(6)">6</button></td>
+            <td><button onclick="soma()">+</button></td>
+        </tr>
+        <tr>
+                <td><button onclick="addValor(7)">7</button></td>
+                <td><button onclick="addValor(8)">8</button></td>
+                <td><button onclick="addValor(9)">9</button></td>
+                <td><button onclick="igual()">=</button></td>
+            </tr>
+   </table>
+
+   <script>
+       var auxN;
+       var auxop;
+       function addValor(val){
+           if(visor.value == "0"){
+            visor.value = val;
+           }else{
+               if(visor.value == "+" || visor.value == "+"){
+                  auxop = visor.value;
+                  visor.value = val;
+               }else{
+                    visor.value += val;
+               }
+            
+           }           
+       }
+       function limpa(){
+        auxN = undefined;
+               auxop = undefined;                     
+            visor.value = "0";
+                      
+       }
+       function soma(){
+           if(auxop != undefined){
+               visor.value = eval(auxN+auxop+visor.value);
+               visor.value += "+";
+               auxN = undefined;
+               auxop = undefined;                     
+           }else{
+                auxN=visor.value;
+                visor.value = "+";                     
+           }
+           
+      }
+      function igual(){
+         if(auxop == undefined){
+            visor.value = eval(visor.value);  
+         } else{
+            visor.value = eval(auxN+auxop+visor.value);    
+         }         
+         auxN = undefined;
+         auxop = undefined;
+      }
+   </script>
+</body>
+</html>

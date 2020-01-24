@@ -1,0 +1,15 @@
+<!-- Classe container é do Materialize-css e apenas aplica uma margem -->
+<!-- aqui vai ter um input para permitir entrar com um id do curso -->
+<!-- variável local no input que será passado no parâmetro do routerLink (acima) -->
+<!-- <div class="container">
+    <p>Entre com o id do curso</p>
+    <input #idCurso>
+</div> -->
+
+<!-- chamando o id pela interpolação -->
+<p>
+    id : {{ id }}
+</p>
+
+<!-- usando o operador elvis pra saber se a variavel ta viazia ou não -->
+<p>Curso: {{ curso?.nome }}</p>

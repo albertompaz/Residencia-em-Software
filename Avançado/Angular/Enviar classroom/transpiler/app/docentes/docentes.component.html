@@ -1,0 +1,9 @@
+<div class="container-fluid">
+
+    <h1><i class="fas fa-chalkboard-teacher"></i><span class="dando_espaco">Corpo Docente</span></h1>
+
+    <div *ngFor="let pessoa of pessoas">
+        <p *ngIf="pessoa.tipo == 'professor'"> - <strong>Nome:</strong> {{pessoa.nome}} / <strong>Email:</strong> {{pessoa.email}}</p>
+    </div>
+
+</div>

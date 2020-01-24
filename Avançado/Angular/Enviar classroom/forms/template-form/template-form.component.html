@@ -1,0 +1,37 @@
+<!-- template form é feito em função do template, entao a maioria das informações estarão aqui -->
+
+<!-- Template Form sempre precisa de 3 diretivas: 
+-- ngForm
+-- ngModel(sempre fica no final do input)
+-- ngSubmit -->
+
+<!-- criando uma variavel local para as informações serem passadas para ela, pra ela ser reconhecido com as 
+funções do componente. 
+A variavel com ngForm diz para o Angular gerenciar todas as informações la dentro,
+pra dizer pro angular gerenciar as informações dos campos. 
+event binding como ngSubmit pois ela sera responsavel pra fazer as sequisições pro servidor, aonde
+criamos um evento onSubmit passando a nossa variave local-->
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+        <!-- criando informações dos campos que iremos utilizar -->
+        <!-- label  para informar o nome do campo -->
+        <!-- tipo text no imput pois ele recebera um texto normal -->
+        <!-- placeholder para ficar aparecendo a mensagem antes do usuario digitar algum dado -->
+        <!-- class="form-control" para fazer que o angular entenda como um formulario de requisição -->
+        <!-- ngModel é a forma com o qual o template consegue se entender com o componente. Sem ele, eles não
+        se comunicam. Ele que associa as informações do input para ser mandada para o componente -->
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" ngModel>
+    </div>
+
+    <div class="form-group">
+
+        <label for="email">E-mail</label>
+        <!-- input tipo email pra reconhecer as informações de email -->
+        <input type="email" class="form-control" name="email" id="email" placeholder="nome@email.com" ngModel>
+    </div>
+
+    <!-- botão para realizar o envio dos dados, om a classe btn btn-primary do bootstrap -->
+    <!-- type submit para enviar informações do formulario, ao clicar no botão ele chama o evento onSubmit -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

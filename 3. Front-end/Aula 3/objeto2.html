@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teste do Objeto</title>
+    <style>
+        #div {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div" onclick="teste()">
+        clica Aqui!
+    </div>
+    <div>
+        <p id="idn">segundo paragrafo</p>
+    </div>
+    <div>
+        <p id="alterei">terceiro paragrafo</p>
+    </div>
+
+    <script>
+        function teste() {
+            document.querySelector('div#div').style.background = 'green'
+            document.querySelector('div#div').style.color = 'white'
+            div.innerHTML = 'Funfou!'
+        }
+
+        window.onload = function() {
+            var aluno = {
+                nome: "Faluno",
+                Sobrenome: 'da Silva',
+                idade: 20,
+                matricula: '22222',
+                nomeCompleto: function() {
+                    return aluno.nome+""+aluno.Sobrenome
+                },
+                isResponsavel: function () {
+                    if (aluno.idade > 18) {
+                        return "É maior de idade"
+                    } else {
+                        return "ÉDiMenor"
+                    }
+                }
+            }
+          
+            div.innerHTML += JSON.stringify(aluno)
+
+            idn.innerHTML = "<strong> Idade: </strong>" +aluno.idade;
+            
+            alterei.innerHTML  = `<strong> Situação Penal: </strong> ${aluno.isResponsavel()}`;
+
+        }
+    </script>
+
+</body>
+</html>

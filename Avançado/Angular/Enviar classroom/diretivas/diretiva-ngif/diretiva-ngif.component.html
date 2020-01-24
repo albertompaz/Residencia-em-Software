@@ -1,0 +1,64 @@
+<!--apenas um título-->
+<h5>*ngIf</h5>
+
+
+<h6>Exemplo ngIf variavel string arrays</h6>
+
+<!-- Usando o ngIf que é uma condicional if
+estrutura do ngIf: *ngIf="<Condicional a ser avaliada>"
+Se o conteudo do vetor for maior que zero ele mostrara a div a seguir -->
+<div *ngIf="cursos.length > 0">
+    Lista de cursos aqui
+</div>
+
+<!-- Se o conteudo do vetor for igual a zero ele mostrara a div a seguir -->
+<div *ngIf="cursos.length == 0">
+    Não existem cursos para serem listados
+</div><br><br>
+
+<h6>Exemplo ngIf variavel boolean</h6>
+
+<!-- Exemplo com  ngIf com a variavel booleana, aonde ele mostrará a div dependendo do valor dela -->
+<div *ngIf="mostrarCursos">
+    Lista de cursos aqui
+</div>
+
+<div *ngIf="!mostrarCursos">
+    Não existem cursos para serem listados
+</div><br><br>
+
+<h6>botão com funçao da variavel boolean</h6>
+
+<!-- Criando um botãoa com um event-binding de click, que chamara um metodo para mudar o valor da variavel -->
+<div>
+    <button (click)="onMostrarCursos()">Mostrar ou esconder cursos</button>
+</div><br><br>
+
+<h6>hidden como alternativa</h6>
+
+<!-- Observações:
+Ao se usra o ngIf, caso a informação não seje mostrada, ele ira destruir as informações, levando a um 
+custo de processamento.
+Ao se utilizar o hidden como alternativa, ele não destroi as informações caso a condicional nao seje 
+verificada, mas um ponto negativo dele é esse fato de não destruir, e sim só esconder. Se voce está 
+tratando com dados de segurança, só deixar eles escondidos não é uma boa ideia, pois as pessoas podem 
+acessar os seus dados através do console, pois eles só estão escondidos -->
+
+<!-- usando um property-binding hidden que toda div ja tem esse hidden, aonde é uma função análoga ao do ngIf -->
+<div [hidden]="!mostrarCursos">
+    Lista de cursos aqui
+</div>
+
+<div [hidden]="mostrarCursos">
+    Não existem cursos para serem listados
+</div><br><br>
+
+<!-- <h6>Sobre como funciona o * nas diretivas</h6>
+
+<ng-template [ngIf]="mostrarCursos">
+    <div>Lista de cursos aqui.</div>
+</ng-template>
+
+<div ng-template="ngIf mostrarCursos">
+    Lista de cursos aqui.
+</div> -->

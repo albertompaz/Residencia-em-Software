@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App18",
+            "request": "launch",
+            "mainClass": "app.App18",
+            "projectName": "jogo"
+        }
+    ]
+}

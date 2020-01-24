@@ -1,0 +1,36 @@
+<div class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 login-sec">
+                    <div class="login-title">
+                        <h3>&#8249;Residência de Software&#8250;</h3>
+                    </div>                    
+                   
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-uppercase">Matrícula</label>
+                            <input [(ngModel)]="usuario.cpf" type="text" class="form-control" placeholder="CPF" id="matricula">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="text-uppercase">Senha</label>
+                            <input [(ngModel)]="usuario.senha" type="password" class="form-control" placeholder="********" id="senha">
+                        </div>
+                    
+
+                    <div>                   
+                        <input type="button" value="Login" (click)="fazerLogin()">
+                    </div>
+
+                
+            </div>
+            <div class="col-md-8 banner-sec">
+                <div class="carousel-inner" role="listbox">
+                    <!-- <img class="imgfrente" src="img/frente_serratec_novo.png" alt="Frente Serratec"> -->
+                    <img class="imgfrente" src="../../assets/download.png" alt="Frente Serratec" id="imagem">
+                    <div class="banner-text">
+                        <h2> SISTEMA ACADÊMICO </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

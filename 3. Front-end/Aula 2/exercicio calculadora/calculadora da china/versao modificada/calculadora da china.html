@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Primeiro exemplo JS</title>
+        <link rel="stylesheet" href="calculadora.css">
+    </head>
+    <body>
+        <h1 id="teste">Calculadora da China</h1>
+
+        <div id="container">
+            <div>
+                <input id="visor">
+            </div>
+            
+            <div id="corpo">
+                <div id="c1">
+                <button onclick="addValor(1)">1</button>
+                <button onclick="addValor(2)">2</button>
+                <button onclick="addValor(3)">3</button>
+                <button onclick="limpa()">C</button>
+                </div>
+                <div>
+                <button onclick="addValor(4)">4</button>
+                <button onclick="addValor(5)">5</button>
+                <button onclick="addValor(6)">6</button>
+                <button onclick="addValor('+')">+</button>
+                </div>
+                <div>
+                <button onclick="addValor(7)">7</button>
+                <button onclick="addValor(8)">8</button>
+                <button onclick="addValor(9)">9</button>
+                <button onclick="addValor('-')">-</button>
+                </div>
+                <div>
+                <button onclick="addValor('*')">*</button>    
+                <button onclick="addValor(0)">0</button>
+                <button onclick="addValor('/')">/</button>
+                <button onclick="calcula()" type="text" id="resultado">=</button>
+                </div>
+                <div>
+                    <button class="parenteses" onclick="addValor('(')">(</button>
+                    <button class="parenteses" onclick="addValor(')')">)</button>    
+                </div>
+            </div>
+        </div>
+        <script>
+
+            function addValor(val){
+                if(visor.value == "0") {
+                    visor.value = val;
+                }else{
+                    visor.value += val;
+                }    
+            }
+
+            function calcula(){
+                document.getElementById("visor").value = eval(document.getElementById("visor").value);
+            }
+
+            function limpa(){
+                document.getElementById("visor").value = 0;
+            }
+
+            
+        </script>
+
+    </body>
+</html>

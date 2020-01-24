@@ -1,0 +1,55 @@
+<!-- nosso tamplate om as informações de visualização --> 
+<!-- sendo feito a partir do menu de validação do bootstrap -->
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-left">
+            <h4>Cursos</h4>
+        </div>
+        <div class="float-right">
+            <!-- botão para criar novo curso -->
+            <!-- router link pra levar pra rota "novo" -->
+            <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Curso</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Curso</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- tabela de iteração do curso criada usando o ngFor -->
+                <tr *ngFor="let curso of cursos">
+                    <td>{{ curso.id }}</td>
+                    <td>{{ curso.nome }}</td>
+                    <!-- botões para fazer a chamada do evento -->
+                    <!-- os botões ainda estao dentro da tabela, pra cada iteração de informação ter um botão atualizar e remover -->
+                    <td>
+                        <span class="float-right">
+                        <!-- event-binding chamando o evento onEdit, aonde esta parsando o curso.id -->
+                      <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(curso.id)">
+                        Atualizar
+                      </button>
+                      <!-- event-binding chamando o evento onDelete, aonde esta parsando o curso -->
+                      <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(curso)">
+                        Remover
+                      </button>
+                    </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- modal que sera chamado ao clicar no botão remover,
+        aonde dependendo da opção selecionada, o event-binding chamara um evento determinado -->
+        <!-- variavel local deleteModal para conseguir reconhecer as informações desse modal -->
+        <ng-template #deleteModal>
+            <div class="modal-body text-center">
+                <p>Tem certeza que deseja remover o curso?</p>
+                <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+                <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Nao</button>
+            </div>
+        </ng-template>

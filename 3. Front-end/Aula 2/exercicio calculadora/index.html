@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Primeiro exemplo JS</title>
+        
+    </head>
+    <body>
+        <h1 id="teste">Calculadora</h1>
+        <div>
+            <input type="text" id="v1" placeholder="Insira o valor 1">
+        </div>
+        <div>
+            <input type="text" id="v2" placeholder="Insira o valor 2">
+        </div>
+        <button onclick="add()">Add</button>
+        <button onclick="subtracao()">subtração</button>
+        <button onclick="multiplicacao()">multiplicação</button>
+        <button onclick="divisao()">divisão</button>
+        <div>
+            <input id="resultado" placeholder="Resultado">
+        </div>
+
+        <script>
+
+            function add(){
+                var v1 = Number(document.getElementById("v1").value);
+                var v2 = Number(document.getElementById("v2").value);
+                document.getElementById("resultado").value = (v1+v2);
+                }
+
+            function subtracao(){
+                var v1 = Number(document.getElementById("v1").value);
+                var v2 = Number(document.getElementById("v2").value);
+                document.getElementById("resultado").value = (v1-v2);
+            }
+
+            function multiplicacao(){
+                var v1 = Number(document.getElementById("v1").value);
+                var v2 = Number(document.getElementById("v2").value);
+                document.getElementById("resultado").value = (v1*v2);
+            }
+
+            function divisao(){
+                var v1 = Number(document.getElementById("v1").value);
+                var v2 = Number(document.getElementById("v2").value);
+                document.getElementById("resultado").value = (v1/v2);;
+            }
+        </script>
+
+    </body>
+</html>

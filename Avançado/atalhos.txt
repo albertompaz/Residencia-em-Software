@@ -1,0 +1,5 @@
+ctrl + shift + f  ------- formatar codigo
+
+ctrl + m ----------- abrir codigo em tela cheia
+
+sout -------------  atalho para System.out.println();

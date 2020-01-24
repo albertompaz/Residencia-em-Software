@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Primeiro exemplo JS</title>
+        
+        
+    </head>
+    <body>
+        <h1 id="teste">Aula 1 JS</h1>
+        <input onchange="calcula()" type="text" id="ent">
+        <script>
+                function calcula(){
+                    document.getElementById("teste")
+                       .innerHTML =
+                       eval(document.getElementById("ent")
+                       .value); 
+                } 
+                     
+            </script>
+    </body>
+</html>

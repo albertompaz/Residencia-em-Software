@@ -1,0 +1,26 @@
+
+<!-- navbar padrao do bootstrap -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <!-- nosso header -->
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="">Angular Forms</a>
+        </div>
+
+        <!-- 2 links, um para cada tipo de formulario -->
+        <ul class="nav navbar-nav">
+            <!-- ativo para destacar ao ser selecionado -->
+            <li routerLinkActive="active">
+                <a routerLink="/templateForm">Form - Template Driven</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/dataForm">Form - Data Driven</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

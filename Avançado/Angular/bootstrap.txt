@@ -1,0 +1,5 @@
+Instalando bootstrap:
+
+https://valor-software.com/ngx-bootstrap/#/documentation#getting-started
+
+https://github.com/valor-software/ngx-bootstrap/blob/c86d0f5fd0ee289595563073caadab863ce2dddf/docs/getting-started/ng-cli.md

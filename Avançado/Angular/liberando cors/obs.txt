@@ -1,0 +1,3 @@
+O arquivo deve ser criado na raiz do projeto.
+
+Tanto faz usar o .js ou .json

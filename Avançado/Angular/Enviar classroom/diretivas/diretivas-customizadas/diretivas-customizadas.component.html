@@ -1,0 +1,49 @@
+<h5>Diretiva fundo amarelo</h5>
+
+<p appFundoAmarelo>Texto com fundo amarelo.</p>
+
+<button appFundoAmarelo>Botão com fundo amarelo.</button>
+
+<br><br>
+
+<h5>Diretiva highlight usando o mouse</h5>
+
+<p appHighlightMouse>
+    Texto com highlight quando passo o mouse.
+</p>
+
+<br><br>
+
+<h5>Diretiva highlight</h5>
+
+<!-- alterando o componente default da nossa diretiva através de um property-binding -->
+<!-- usando aspas simples pois estamos passando uma string -->
+<p [appHighlight]="'red'" [defaultColor]="'grey'"> <!-- "'rgb(255,100,255)'" -->
+    Texto com highlight com cores customizadas.
+</p>
+
+<br><br>
+
+<h5>Diretiva Estrutura customizada - ngElse</h5>
+
+<div *ngIf="mostrarCursos">
+    Lista de cursos aqui.
+</div>
+<div *ngElse="mostrarCursos">
+    Não existem cursos para serem listados.
+</div>
+
+<!-- botão para se alterar o valor da variavel booleana -->
+<br>
+<button (click)="onMostrarCursos()">
+  Mostrar ou esconder cursos
+</button>
+<br>
+
+<!-- Mostrando como o angular entende sem o * com property-binding
+conseguimos fazer isso desde que usamos o Input() na nossa diretiva -->
+<ng-template [ngElse]="mostrarCursos">
+    <div>
+        Não existem cursos para serem listados.
+    </div>
+</ng-template>

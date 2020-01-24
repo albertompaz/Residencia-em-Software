@@ -1,0 +1,17 @@
+<h5>Compartilhando um serviço entre componentes</h5>
+
+<!-- criando um campo pra digitar os dados -->
+<input type="text" #cursoInput>
+<!-- botão para chamar eventos pra pegar o valor do campo (cursoInput.value) e mandar pro método onAddCurso -->
+<button (click)="onAddCurso(cursoInput.value)">Adicionar Curso</button>
+
+<!-- Criando a lista dos curso através do *ngFor -->
+<ul>
+    <!-- ngFor varia com o vetor.length -->
+    <li *ngFor="let curso of cursos">
+        {{ curso }}
+    </li>
+</ul>
+
+<!-- recebendo informações do app-receber-crsos-criado -->
+<app-receber-curso-criado></app-receber-curso-criado>

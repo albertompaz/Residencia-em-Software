@@ -1,0 +1,19 @@
+
+<p>
+    Alunos:
+</p>
+
+<!-- div pra conter a lista dos alunos -->
+<div class="collection">
+    <!-- listando os alunos do nosso componente através do ngFor -->
+    <!-- o roteamento sera feito através do routerLink (feito através de um property binding) aonde a rota
+         é feita escrevendo o /aluno e colocando o id do aluno, ficando .../aluno/<id_do_aluno> -->
+    <a class="collection-item" *ngFor="let aluno of alunos" [routerLink]="['/alunos', aluno.id]">
+        <!-- escrevendo o nome do aluno -->
+ {{ aluno.nome }}
+    </a>
+</div>
+
+<!-- pra rota filha funcionar a rota pai precisa ter essa definição de rota, pra carregar a rota filha 
+    dentro da rota pai -->
+<router-outlet></router-outlet>

@@ -1,0 +1,35 @@
+
+<!-- VERSÃO COMENTADA É DE ANTES DO EXEMPLO DE ESCONDER MENU QUANDO USA LOGIN  -->
+<!-- criando um menu com o materealize(tipo um bootstrap) aonde tera os links com as devidas rotas -->
+ <nav>
+    <div class="nav-wrapper">
+        <a routerLink="/home" class="brand-logo right">Inicio</a>
+        <!-- criando a lista com os itens do meno -->
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <!-- Todas esses routerLink tem que conter dentro do app.routing.ts -->
+            <!-- routerLinkActive="active" é para destacar quando passamos o mouse por cima -->
+            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <li routerLinkActive="active"><a routerLink="/cursos">Cursos</a></li>
+            <!-- <li routerLinkActive="active"><a [routerLink]="['curso', idCurso.value]">Curso com id</a></li> -->
+            <li routerLinkActive="active"><a routerLink="/alunos">Alunos</a></li>
+        </ul>
+    </div>
+</nav> 
+
+<!-- para fazer o login funcionar com autentificação, exclui o de cima e descometa o de baixo -->
+<!-- <nav *ngIf="mostrarMenu">
+    <div class="nav-wrapper">
+        <a routerLink="/home" class="brand-logo right">Inicio</a>
+        <ul id="nav-mobile">
+            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <li routerLinkActive="active"><a routerLink="/cursos">Cursos</a></li>
+            <li routerLinkActive="active"><a routerLink="/alunos">Alunos</a></li>
+        </ul>
+    </div>
+</nav> -->
+
+<!-- pra funcionar o roteamento precisamos desse <router-outlet>, que é ele que faz a gente
+    acessar cada link de roteamento -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

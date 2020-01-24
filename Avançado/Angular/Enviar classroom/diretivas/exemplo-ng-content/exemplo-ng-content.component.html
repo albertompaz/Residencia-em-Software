@@ -1,0 +1,12 @@
+<!-- criando um ng-content pra servir de molde pra ser passdo no app.conponent.html
+ao se o usar a classe extipulada no select. Ele define a classe que ao ser utilizada com o 
+nome do select, pegara essas informações aqui nas div para ser aplicada nas informações no 
+app.component.html de forma dinamica -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <ng-content select=".titulo"></ng-content>
+    </div>
+    <div class="panel-body">
+        <ng-content select=".corpo"></ng-content>
+    </div>
+</div>

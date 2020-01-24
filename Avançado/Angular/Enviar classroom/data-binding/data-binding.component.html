@@ -1,0 +1,208 @@
+<p>data-binding works!</p>
+
+
+<div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+
+<section class="property-binding">
+
+    <article>
+        <!-- mostrando omo chamar as variaveis do componente através da interpoção, 
+        através do{{ <nome da variavel> }} -->
+        <h3>Interpolation/Interpolação</h3>
+        <p>String renderizada com interpolação: {{ url }}</p>
+        <!-- a interpoção pode aceitar expressões matematicas dentro dela ({{ 1+1 }} retornará 2) -->
+        <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
+        <p>Resultado de 1 + 1 não é: {{ 1 + 1 + getValor() }}</p>
+        <!-- realizando uma expressão logica dentro da interpolação -->
+        <p></p>Curso de Angular e gosto do curso: {{ cursoAngular && getCurtirCurso()}}
+
+    </article>
+
+
+    <article>
+        <h3>Property binding</h3>
+        <!--   associação de propriedades -->
+        <!--   função - fazer uma saida de um atributo que está em um componente para o template  -->
+
+        <!-- criando uma tag imagem, aonde o src dela é uma chamada de variavel
+        <img src = "{{ urlImagem }}" >  -> funciona mais é mais complexo -->
+        <img src="{{ urlImagem }}">
+
+         <!-- [src] só pra mostrar que o src é o binding 
+        bom para usar se tiver mais de um binding/interpolação ao mesmo tempo -->   
+        <img [src]=" urlImagem ">
+        
+        <!-- é esse codigo abaixa que o angular entende quando voce realiza os outros dois acima -->
+        <img bind-src="urlImagem">
+
+    </article>
+
+    <!-- style binding é uma aplicação do property binding levando em conta o stylo -->
+    <article>
+        <h3>Classe Style Binding</h3>
+        <div>
+            Selecione uma classe:
+
+            <!-- select esta criando um meno pra escolher -->
+            <!-- #<nome da variavel> (modificador de evento)-->
+            <!-- criando uma variavel chamanda classe, que sera usada mais tarde pra pegar o valor dentro da opção selecionada --> 
+            <select #classe (change)="0"> 
+                    <!-- option - cada option sera uma informação dentro do select -->
+                    <option value="alert-success">Sucesso</option>
+                    <option value="alert-info">Info</option>
+                    <option value="alert-warning">Alerta</option>
+                    <option value="alert-danger">Erro</option>
+            </select>
+        </div>
+        <br><br>
+
+        <!-- chamadas a serem executadas conforme o option do select selecionado pelo usuario -->
+        <!-- acessando o valor selecionado atraves da variavel #classe, aonde classe.value pega o valor que foi selecionado --> 
+        <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-success'">Sucesso</div>
+        <div class="alert" role="alert" [class.alert-info]="classe.value == 'alert-info'">Info</div>
+        <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'">Alerta</div>
+        <div class="alert" role="alert" [class.alert-danger]="classe.value == 'alert-danger'">Erro</div>
+
+        <!-- pegando o valor da classe selecionada para modificar a cor do texto, passando esse valor como variavel para o bootstrap-->
+        <div class="alert {{ classe.value }}" role="alert">
+            Texto colorido conforme o valor do combobox
+        </div>
+
+        <!-- usando uma condicional para mostrar o conteúdo só se a opção selecionada for de alerta -->
+        <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none' ">
+            Esse texto somente aparece em caso de erro
+        </div>
+    </article>
+
+</section>
+
+<section class="event-binding">
+
+    <article>
+        <h3>EVENT BINDING</h3>
+
+        <!-- Nós chamamos os eventos no template e os implementamos no componente -->
+
+        <!-- lista de eventos que podem ser criados https://developer.mozilla.org/pt-BR/docs/web/events -->
+        <!-- o angular perebe que estamos usando informações de event-binding usando os parenteses (<eventi>) -->
+
+        <div>
+            <!-- criando um event-binding, que chamara o método "botaoCliclado()", e um botão pra chamar esse evento -->
+            <button (click)="botaoClicado()" class="btn btn-primary">clique!</button>
+
+            <br><br>
+
+            <!-- criando uma caixa de texto
+            keyup verifica toda vez que voce preciona uma tecla
+            $ significa que esse evento ta sendo enviado pro método -->
+
+            keyup.enter sera acionado ao se apertar o enter
+
+            <!-- event-binding (blur) - é acionado ao tirar o mause de cima do campo
+            ele será acionado ao tirar o mouse de cima do campo input, pois as pessoas podem esquecer de apertar enter para salvar o valor -->
+
+            <input type="text" (keyup)="onKeyUp($event)" (keyup.enter)="salvarValor(campoInput.value)" 
+            (blur)="salvarValor(campoInput.value)" #campoInput/>
+            <!--  gerando uma variavel local chamada compo input -->
+
+            <!-- através da interpolação, se chama o valor da variavel valorAtual -->
+            <p>Valor atual: {{ valorAtual }}</p>
+
+            <!-- mostrando o conteudo da variavel valorSalvo através de interpolação -->
+            <p>Valor salvo: {{ valorSalvo }}</p>
+
+            <br><br>
+
+            <!-- mouseOver - ao se passar o mouse por cima se chama o evento
+            mouseOverOut - ao tirar o mouse se chama o evento -->
+
+            <!-- property-binding chamando a class.highlight, que tem informações de css
+            se o css fosse id, seria id.highlight 
+            caso a variavel booleana seja true, ela chamara o arquivo css-->
+            <span (mouseover)="onMouseOverOut()" (mouseout)="onMouseOverOut()" [class.highlight]="isMouseOver">
+                Passe o mouse sobre este texto
+
+            </span>
+            <br><br>
+
+        </div>
+    </article>
+
+    <!-- property-binding = []
+    event-binding = () -->
+
+    <section class="two-way-binding">
+        <article>
+            <h3>Two-way data binding</h3>
+            <div>
+                <!-- input passando as informações através de um evento, aonde o target.value pega o valor do campo de texto -->
+                <input type="text" [value]="nome" (input)="nome = $event.target.value" />
+
+                <!-- O ngModel ja é uma função do angular que serve pro template reconhecer a variavel
+                que o componente ta mandando, ao envez de por o value na variavel como no exemplo acima -->
+
+                <!-- OBS: para se usar o NgModel precisa se por as informações do ng model no app.module.ts
+                que é o import dele e dizer que ta usando ele dentro do @NgModule:
+                import { FormsModule } from '@angular/forms';    
+                FormsModule -->
+                <input type="text" [ngModel]="nome" (ngModelChange)="nome = $event" />
+
+                <!-- Esse é o two two-way-binding propriamente dito
+                aonde ele ira mandar pro componente e pegar para o template ao mesmo tempo
+                para se usar o two-way-binding tem que se usar [(<nome_da_variavel>)] -->
+                <input type="text" [(ngModel)]="nome" />
+
+                <p>Você digitou {{ nome }} </p>
+
+                <br><br><br>
+            </div>
+
+            <!-- passandoo two-way-binding com o uso de objetos -->
+            <div>
+
+                <!-- escrevendo o texto usando as informações do objeto através de interpolação -->
+                <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade </p>
+
+                <!-- usando o two-way-binding para mandar o novo dado pro componente e mostrar o que voce ta escrevendo -->
+                <input type="text" [(ngModel)]="pessoa.nome" />
+                <input type="text" [(ngModel)]="pessoa.idade" />
+
+                <br><br><br>
+            </div>
+        </article>
+
+    </section>
+
+    <section class="input-output-properties">
+
+        <article>
+
+            <h3>INPUT/OUTPUT PROPERTIES</h3>
+
+            <!-- property-binding pra chamar a variavel nome que esta dentro do componente do input-property
+            para receber o valor da variavel nomeDoCurso que esta no componente Pai -->
+
+            <!-- <p [nome]="nomeDoCurso"></p> não funciona pois ta chamando outro componente-->
+
+            <!-- app-curso é o nome do seletor do componente input-property -->
+            
+            <!-- essa variavel atravez do @Input está exposta para fazer uma associação, essa associação é
+            através do '<nome_da_variavel/nome fantasia que voce quer dar>' -->
+            <app-curso [nome]="nomeDoCurso"></app-curso>
+
+            <br><br><br>
+
+            <!-- Como é um componente externo, está se chamando o seletor app-contador para ser reconhecido
+            dentro do componente pai -->
+            <!-- Usando event-binding para chamar um evento no componente filho (mudouValor), aonde esse evento
+            chamara um evento no componente pai para escrever no console o valor atual -->
+            <!-- $ indica que ta pssando um valor do template para o componente -->
+            <app-contador [valor]="valorInicial" (mudouValor)="onMudouValor($event)"></app-contador>
+
+            <br><br><br>
+
+        </article>
+
+    </section>

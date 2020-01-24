@@ -1,0 +1,76 @@
+<h5>Exemplos de Pipes</h5>
+
+
+<!-- O exemplo comentado abaixo é o com o uso apenas das pipes embutidas no Angular-->
+<!-- <p>Título: {{ livro.titulo | uppercase | lowercase}}</p>
+<p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
+<p>Páginas: {{ livro.numeroPaginas | number }}</p>
+<p>Preço: {{ livro.preco | currency:'BRL' }}</p>
+<p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MMM-yyyy' }}</p>
+<p>Url: {{ livro.url }}</p>
+<br>
+<p>Livro: {{ livro | json}}</p> -->
+
+<!-- escrevendo os dados do objeto livro que criamos no componente -->
+<!-- | é o simbulo do pipe, que significa o que estaremos modificando -->
+<!-- O pipe sobreescreve o css, inclusive ele sobreescreve ele mesmo como no exemplo abaixo,
+o camelCase sobrepõe o uppercase e o lowercase -->
+<!-- Se o camelCase não estiver disponivel, ele irá carregar o lowercase -->
+<p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
+<p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p> <!-- number:'numero de digitos no numero inteiro - numero de digitos de casas decimais - numero maximo de casas decimais' -->
+<p>Páginas: {{ livro.numeroPaginas | number }}</p> <!-- não vai ser entendido como string, e sim como inteiro -->
+<p>Preço: {{ livro.preco | currency:'BRL' }}</p> <!-- irá aparecer o R$ -->
+<p>Data Lançamento: {{ livro.dataLancamento | date:'dd-MMM-yyyy' }}</p>  <!-- MM iria ficar 06 -->
+<p>Url: {{ livro.url }}</p>
+<br>
+<!-- passando o livro no formato json -->
+<p>Livro: {{ livro | json}}</p>
+
+<input type="text" [(ngModel)]="filtro">
+
+<br>
+
+<!-- criando o input e o botão para se adicionar um curso -->
+<input type="text" #novoValor>
+<button (click)="addCurso(novoValor.value)">Add Curso</button>
+
+<!-- Pipe puro é aquele que feita uma transformação ele aceita e pronto. Meio que um "const" de javascrypt
+uma vez que você transorma ele ira fazer as mudanças daquela transformação, mas ele não modifica mais
+após realizar ela -->
+<h5>Pipe Puro</h5>
+
+<!-- fazendo uma lista com o ngFor e aplicando um pipe filtroArray na lista -->
+<ul>
+    <li *ngFor="let liv of livros | filtroArray: filtro">
+        {{ liv }}
+    </li>
+</ul>
+
+<br><br>
+
+<!-- Pipe impuro ja aceita outras mudanças -->
+<h5>Pipe Impuro</h5>
+
+<ul>
+    <li *ngFor="let liv of livros | filtroArrayImpuro:filtro">
+        {{ liv }}
+    </li>
+</ul>
+
+<br><br>
+
+<h5>Maneira correta de usar filtro nos projetos</h5>
+
+<!-- vai chamar obterCursos do componente -->
+<!-- criand uma lista com o ngFor e faz a chamada do obterCurso() do nosso componente -->
+<ul>
+    <li *ngFor="let liv of obterCursos()">
+        {{ liv }}
+    </li>
+</ul>
+
+<!-- asyncrono para esperar todo mundo chegar da requisição pra depois escrever, dando um tmepo pro servidor
+retornar a resposta pra gente -->
+<p>{{ valorAsync | async }}</p>
+
+<p>{{ valorAsync2 | async }}</p>

@@ -1,0 +1,4 @@
+create database <nome do banco>;
+show databases;
+
+use <nme do banco>; entra no banco

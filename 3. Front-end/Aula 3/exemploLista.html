@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="valor">
+    <button onclick="addItem()">add</button>
+    <button onclick="remove()">Remover</button>
+    <div id="itens">
+
+    </div>
+
+    <script>
+
+        var lista2 = [4, 6, 3, 2];
+        console.log("Quantidade de itens: "+lista2.length);
+        console.log(lista2);
+        lista2.splice(0, 1) //a partir de qual posição desejo remover, e quantos itens desejo remover ( remover 1 item a partir da posição 0)
+        console.log(lista2);
+
+
+        var lista = new Array();
+        console.log("Quantos itens: "+lista.length);
+        //lista.sort(); // .sort() -> ordena em ordem crescente a lista
+
+        function addItem(){
+            lista.unshift(Number(valor.value));
+            itens.innerHTML="" // para zerar a lista e adicionar so o proximo valor
+            mostrar();
+        }
+
+        function mostrar () {
+            itens.innerHTML="" // para zerar a lista e adicionar so o proximo valor
+            for (let i=0; i<lista.length; i++){
+                itens.innerHTML += "<p>"+lista[i]+"</p>";
+            }
+        }
+
+        function remove() {
+            lista.pop()//remove do final  lista.shift() // remove no inicio
+            mostrar();
+        }
+        
+        //console.log(lista)
+        //console.log(lista[1]);
+
+        
+    </script>
+</body>
+</html>

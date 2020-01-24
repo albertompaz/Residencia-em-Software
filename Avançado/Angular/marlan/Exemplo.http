@@ -1,0 +1,30 @@
+// extenção rest client que faz essa brincadeira funcionar
+//http://localhost:3000 é a rota criada no nosso db.json ao subir ele
+
+GET http://localhost:3000/cursos
+
+###
+
+GET http://localhost:3000/cursos/1
+
+###
+
+POST http://localhost:3000/cursos
+Content-Type: application/json
+
+{
+    "Nome":"Java"
+}
+
+###
+
+PUT http://localhost:3000/cursos/2
+Content-Type: application/json
+
+{
+    "Nome": "JavaScript"
+}
+
+###
+
+DELETE http://localhost:3000/cursos/2

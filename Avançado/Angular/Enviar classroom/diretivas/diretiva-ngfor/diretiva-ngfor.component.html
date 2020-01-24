@@ -1,0 +1,42 @@
+<h5>Diretiva *ngFor</h5>
+
+
+<h5>Diretiva *ngFor com for normal dentro da função init do componente</h5>
+
+<ul>
+    <!-- Criando uma lista -->
+    <!-- dizendo que o curso vem de cursos, que ta no componente, por isso let curso of cursos -->
+    <!-- Realizando meio que um for each (mas com ngFor), pois pra cada posição do vetor, ele escrevera -->
+    <li *ngFor="let curso of cursos">
+        {{ curso }}
+    </li>
+</ul>
+
+<h5>Diretiva *ngFor com for normal dentro da função init do componente</h5>
+
+<ul>
+    <!-- Pegando o index que ta dentro do ngOninit, para escrever a posição do index corrigida,
+    por isso i+1, e tambem o nome que ta na posição i -->
+    <li *ngFor="let curso of cursos, let i = index">
+        <!-- passando o indice e o curso -->
+        {{ i + 1 }} - {{ curso }}
+    </li>
+</ul>
+
+
+<!-- Como o angular entende dentro desse padrão que é através do ng-template -->
+<h5>Removendo o * e usando template</h5>
+
+<ul>
+    <li ng-template="ngFor let curso of cursos, let i = index">
+        {{ i + 1 }} - {{ curso }}
+    </li>
+</ul>
+
+<ul>
+    <ng-template ngFor [ngForOf]="cursos" let-curso let-i="index">
+        <li>
+            {{ i + 1 }} - {{ curso }}
+        </li>
+    </ng-template>
+</ul>

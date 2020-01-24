@@ -1,0 +1,29 @@
+<h5>Login</h5>
+
+<br><br>
+
+<!-- div para o usuario -->
+<div class="row">
+    <!-- input-fild pois só mostra uma linha
+    col s12 pra ocupar toda a tela -->
+    <div class="input-field col s12">
+        <!-- usando o two-way-databindin pra pegar o que estou digitando e o que estou recebendo ao mesmo tempo -->
+        <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="validate">
+        <label class="active" for="usuario">Usuário</label>
+    </div>
+</div>
+
+<!-- div para a senha -->
+<div class="row">
+    <div class="input-field col s12">
+        <input [(ngModel)]="usuario.senha" id="senha" type="password" class="validate">
+        <label class="active" for="senha">Senha</label>
+    </div>
+</div>
+
+<!-- botão pro login -->
+<!-- event-binding pra chamar o método fazerlogin() -->
+<button class="btn waves-effect waves-light" type="submit" name="action" (click)="fazerLogin()">
+    Login
+    <i class="material-icons right">send</i>
+</button>
